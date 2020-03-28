@@ -3,9 +3,9 @@
 #include<stdio.h>
 #include<string.h>
 #include<fstream> 
- #include<process.h> 
+// #include<process.h> 
 #include<iomanip>
-#include<conio.h>
+//#include<conio.h>
 using namespace std;
 /*{
 	
@@ -58,7 +58,7 @@ class book
 		}
 		void show()
 		{
-			cout<<endl<<"Book Name : "<<bno;
+			cout<<endl<<"Book Number : "<<bno;
 			cout<<endl<<" Book Name :"<<bname;
 			cout<<endl<<" Author name "<<aname;
 			cout<<"-------------------------------------------------------------------";
@@ -83,7 +83,7 @@ class student
 		fflush(stdin);
 		gets(stname);
 		token=0;
-		setbno[0]='/0';
+		setbno[0]='\0';
 		cout<<"\n\n student record created..";
 	}
 	void displaystd()
@@ -185,7 +185,7 @@ void display_b(char n[])
 	fp.close();
 	if(flag==0)
 	cout<<"book does not exist";
-	getch();
+	//getch();
 }
 
 void display_s(char n[])
@@ -203,7 +203,7 @@ void display_s(char n[])
 	fp.close();
 	if(flag==0)
 	cout<<"student does not exist";
-	getch();
+	//getch();
 }
 void modifyb()
 {
@@ -233,7 +233,7 @@ void modifyb()
     {
     	cout<<"\t\t records not found : ";
 	}
-	getch();
+	//getch();
 }
 void modifys()
 {
@@ -287,7 +287,7 @@ void deleteb()
 		 remove("book.dat");
 	     rename("Temp.dat","book.dat"); 
 		 cout<<"\n\n\tRecord Deleted ..";
-		getch();
+		//getch();
 				
 	
 }
@@ -318,7 +318,7 @@ void deletes()
 			    cout<<"\n\n\tRecord Deleted ..";
 			    else
 				 cout<<"\n\nRecord not found";
-				 getch();
+				 cin.get();
 				
 }
 void showallstd()
@@ -327,7 +327,7 @@ void showallstd()
 	if(!fp)
 	{
 		cout<<"record not found ";
-		getch();
+	//	getch();
 		
 		
 	}
@@ -345,7 +345,7 @@ void showallb()
 	if(!fp)
 	{
 		cout<<"record not found : ";
-		getch();
+	//	getch();
 	}
 	//cout<<"Booknumber bookname \t\t\t authorname";
 	while(fp.read((char *)&bk,sizeof(book)))
@@ -362,12 +362,12 @@ void book_issue()
 	cout<<"\n\n enter the student admission number : ";
 	//fflush(stdin);
 	cin>>sno;
-	fp1.open(" student.dat",ios::in|ios::out);
-	fp.open(" book.dat",ios::in|ios::out);
-cout<<"bnbjk";
-	while(fp1.read((char *)&st,sizeof(student)) && found==0)
+	fp.open("student.dat",ios::in|ios::out);
+	fp1.open("book.dat",ios::in|ios::out);
+
+	while(fp.read((char *)&st,sizeof(student)) && found==0)
 	{
-	   cout<<"bvbn";
+	  
 		if(strcmpi(st.retadmno(),sno)==0)
 		{
 			found=1;
@@ -415,7 +415,7 @@ void book_deposit()
 	fp1.open("book.dat",ios::in|ios::out);
 	while(fp.read((char *)&st,sizeof(student)) && found==0);
 	{
-		
+		cout<<"qwerty";
 		if(strcmpi(st.retadmno(),sno)==0)
 		{
 			found=1;
@@ -536,7 +536,7 @@ int main()
 			cout<<"\n\n\t03. ADMINISTRATOR MENU"<<endl;
 		 cout<<"\n\n\t04. EXIT";
 		  cout<<"\n\n\tPlease Select Your Option (1-4) ";
-		   ch=getche();
+		   ch=cin.get();
 		    switch(ch)
 			 {
 			  case '1':
