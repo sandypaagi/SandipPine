@@ -3,14 +3,10 @@
 #include<stdio.h>
 #include<string.h>
 #include<fstream> 
-// #include<process.h> 
+#include<process.h> 
 #include<iomanip>
-//#include<conio.h>
+#include<conio.h>
 using namespace std;
-/*{
-	
-	cin>>ch;
-}*/
 class book
 {
 	
@@ -69,6 +65,7 @@ class book
 };
 class student
 {
+	
 	
 	char admno[10];
 	char stname[20];
@@ -185,7 +182,7 @@ void display_b(char n[])
 	fp.close();
 	if(flag==0)
 	cout<<"book does not exist";
-	//getch();
+	getch();
 }
 
 void display_s(char n[])
@@ -203,7 +200,7 @@ void display_s(char n[])
 	fp.close();
 	if(flag==0)
 	cout<<"student does not exist";
-	//getch();
+	getch();
 }
 void modifyb()
 {
@@ -233,7 +230,7 @@ void modifyb()
     {
     	cout<<"\t\t records not found : ";
 	}
-	//getch();
+	getch();
 }
 void modifys()
 {
@@ -287,7 +284,7 @@ void deleteb()
 		 remove("book.dat");
 	     rename("Temp.dat","book.dat"); 
 		 cout<<"\n\n\tRecord Deleted ..";
-		//getch();
+		getch();
 				
 	
 }
@@ -327,7 +324,7 @@ void showallstd()
 	if(!fp)
 	{
 		cout<<"record not found ";
-	//	getch();
+		getch();
 		
 		
 	}
@@ -345,7 +342,7 @@ void showallb()
 	if(!fp)
 	{
 		cout<<"record not found : ";
-	//	getch();
+		getch();
 	}
 	//cout<<"Booknumber bookname \t\t\t authorname";
 	while(fp.read((char *)&bk,sizeof(book)))
@@ -405,7 +402,7 @@ void book_issue()
 }
 void book_deposit()
 {
-	
+	//student st1=st;
 	char sno[10],bno[10];
 	int found=0,flag=0,day,fine;
 	cout<<"\n\n Book Deposit ";
@@ -423,7 +420,7 @@ void book_deposit()
 			{
 				
 				
-				while(fp1.read((char *)&bk,sizeof(bk)) && flag==0)
+				while(fp1.read((char *)&bk,sizeof(book)) && flag==0)
 				{
 					if(strcmpi(bk.retbno(),st.retstbno())==0)
 					{
@@ -536,7 +533,7 @@ int main()
 			cout<<"\n\n\t03. ADMINISTRATOR MENU"<<endl;
 		 cout<<"\n\n\t04. EXIT";
 		  cout<<"\n\n\tPlease Select Your Option (1-4) ";
-		   ch=cin.get();
+		   ch=getche();
 		    switch(ch)
 			 {
 			  case '1':
